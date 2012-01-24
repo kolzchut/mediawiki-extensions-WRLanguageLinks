@@ -3,12 +3,9 @@
 class WRLanguageLinksHooks {
 	
 	public static function register( &$parser ) {
-		$parser->setHook( 'languagelinks', array( 'WRLanguageLinksHooks', 'renderMarker' ) );
+		$parser->setHook( 'languagelinks', array( 'WRLanguageLinks', 'renderMarker' ) );
+		$parser->setFunctionHook( 'haslanguagelinks', array( 'WRLanguageLinks', 'renderHasLinksMarker' ) );
 		return true;
-	}
-
-	public function renderMarker() {
-		return WRLanguageLinks::renderMarker();
 	}
 	
 	/**

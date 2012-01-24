@@ -12,6 +12,7 @@ class WRLanguageLinks {
 	
 	private $mParser;
 	const markerText = 'x--WRLanguageLinks-marker--x';
+	const markerHasLinksText = 'x--WRLanguageLinks-has-links-marker--x';
 	
 	/* Functions */ 
 	
@@ -23,17 +24,37 @@ class WRLanguageLinks {
 		return self::markerText;
 	}
 	
+	public function renderHasLinksMarker() {
+		return self::markerHasLinksText;
+	}
+	
 	public function render( &$text ) {
 		// find markers in $text and replace with actual output
-		$count = 0;
-		$text = str_replace( self::markerText, $this->getLanguageLinks(), $text, $count );
+		$text = str_replace( self::markerText, $this->getLanguageLinks(), $text ); // Find markers for language links
+		$text = str_replace( self::markerHasLinksText, $this->hasLanguageLinks(), $text);	  // Find markers for hasLanguageLinks	
 		return true;
 	}
 	
+	private function hasLanguageLinks() {
+		global $wgWRLanguageLinksShowOnly;
+		$parserLanguageLinks = $this->mParser->getOutput()->getLanguageLinks();
+		$showOnly = explode( ',', $wgWRLanguageLinksShowOnly );
+		if( $parserLanguageLinks == null ) {
+			return "false"; // no language links at all, valid or otherwise
+		} elseif( count( $showOnly ) == 0 ) {
+			return "true"; // there are some language links, and all links are considered valid
+		} else {
+			foreach( $parserLanguageLinks as $l ) {
+				$tmp = explode( ':', $l, 2 );
+				if( in_array( $tmp[0], $showOnly ) ) return "true";	// there is at least one valid language link
+			}
+		}
+		return "false"; // if we got this far, there are no valid language links
+	}
 	
 	private function getLanguageLinks() {
 		global $wgContLang, $wgWRLanguageLinksShowOnly;
-		$output = '';
+		$output = null;
 		# Language links - ripped from SkinTemplate.php
 		$parserLanguageLinks = $this->mParser->getOutput()->getLanguageLinks();
 		$language_urls = array();
@@ -44,7 +65,7 @@ class WRLanguageLinks {
 		foreach( $parserLanguageLinks as $l ) {
 			$tmp = explode( ':', $l, 2 );
 			if( count( $showOnly ) == 0 || in_array( $tmp[0], $showOnly ) ) {
-				$class = 'wr-interwiki-' . $tmp[0];
+				$class = 'wr-languagelinks-' . $tmp[0];
 				unset( $tmp );
 				$nt = Title::newFromText( $l );
 				if ( $nt ) {
@@ -60,13 +81,13 @@ class WRLanguageLinks {
 		}
 
 		if( count( $language_urls ) ) {
-			$output = '<ul class="wr-interwiki">';
+			$output = '<div class="wr-languagelinks" style="max-width: 80%; margin: auto; background-color: white; border: 1px solid #CEDFF2">' . 
+			'<div class="wr-languagelinks-title" style="text-align: center; font-weight: bold;">' . wfMsg( 'otherlanguages' ) . ':</div>' . 
+				'<ul class="wr-languagelinks-list">';
 			foreach ( $language_urls as $langlink ) {
 				$output .= '<li class="'. htmlspecialchars(  $langlink['class'] ) . '"><a href="' . htmlspecialchars( $langlink['href'] ) . '" title="' . htmlspecialchars( $langlink['title'] ) . '">' . $langlink['text'] . '</a></li>';
 			}
-			$output .= '</ul>';
-		} else { 
-			$output = '';	/* wfMsg('wrlanguagelinks-nolinks'); */
+			$output .= '</ul></div>';
 		}
 		
 		return $output;

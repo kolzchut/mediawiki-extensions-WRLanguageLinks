@@ -10,7 +10,6 @@ $messages = array();
 $messages['en'] = array(
 	'wrlanguagelinks'		=> 'Kol-Zchut Language Links',
 	'wrlanguagelinks-desc'		=> 'Parser function to show InterLanguage links',
-	/* 'wrlanguagelinks-nolinks' */
 );
 
 /** Message documentation (Message documentation)
