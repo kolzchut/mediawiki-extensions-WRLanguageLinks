@@ -10,6 +10,7 @@ $messages = array();
 $messages['en'] = array(
 	'wrlanguagelinks'		=> 'Kol-Zchut Language Links',
 	'wrlanguagelinks-desc'		=> 'Parser function to show InterLanguage links',
+	'wr-otherlanguages'    		=> 'In other languages',
 );
 
 /** Message documentation (Message documentation)
@@ -24,4 +25,12 @@ $messages['qqq'] = array(
  */
 $messages['he'] = array(
 	'wrlanguagelinks' 		=> 'קישורי שפה עבור כל-זכות',
+	'wr-otherlanguages'    => 'שפות נוספות',
 );
+
+$messages['ar'] = array(
+	'otherlanguages'    => 'بلغات أخرى',
+	'wr-otherlanguages-short'    => 'הדף ב-',
+);
+
+

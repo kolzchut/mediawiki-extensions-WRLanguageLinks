@@ -21,6 +21,8 @@ $wgExtensionCredits['parserhook'][] = array(
 );
 
 $wgWRLanguageLinksShowOnly = null;
+$wgWRLanguageLinksShowTitles = false; //Show pagename instead of language name; namely <a title=langname>pagename</a>, instead of the opposite
+$wgWRLanguageLinksListType = 'normal'; //Other options: flat (inlnie list) 
 
 // Shortcut to this extension directory
 $dir = dirname( __FILE__ ) . '/';
@@ -36,3 +38,9 @@ $wgAutoloadClasses['WRLanguageLinks'] = $dir . 'WRLanguageLinks.classes.php';
 // Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'WRLanguageLinksHooks::register';
 $wgHooks['ParserBeforeTidy'][] = 'WRLanguageLinksHooks::render';
+
+$wgResourceModules['ext.WRLanguageLinks'] = array(
+	'styles' => 'WRLanguageLinks.css',
+	'localBasePath' => dirname( __FILE__ ),
+	'remoteExtPath' => 'WRLanguageLinks',
+);

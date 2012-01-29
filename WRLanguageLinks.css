@@ -1,0 +1,32 @@
+div.wr-languagelinks {
+	max-width: 80%; 
+	margin: auto; 
+	background-color: white; 
+	border: 1px solid #CEDFF2;
+	padding: 0 .3em;
+}
+
+.wr-languagelinks-title {
+	text-align: left; 
+	font-weight: bold;
+}
+
+ul.wr-languagelinks-list {
+	line-height: 1em;
+}
+
+div.wr-languagelinks-list-flat div.wr-languagelinks-title {
+	display: inline;
+}
+
+div.wr-languagelinks-list-flat ul {
+	display: inline;
+	margin: 0; 
+	padding: 0;
+}
+
+div.wr-languagelinks-list-flat li{
+  	display: inline; 
+  	list-style: none;
+  	padding: 0 0.2em;
+}

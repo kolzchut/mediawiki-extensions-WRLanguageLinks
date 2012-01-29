@@ -53,7 +53,10 @@ class WRLanguageLinks {
 	}
 	
 	private function getLanguageLinks() {
-		global $wgContLang, $wgWRLanguageLinksShowOnly;
+		global $wgContLang, $wgWRLanguageLinksShowOnly, $wgWRLanguageLinksShowTitles, $wgWRLanguageLinksListType;
+		
+		$listClass = "wr-languagelinks-list-$wgWRLanguageLinksListType";
+		
 		$output = null;
 		# Language links - ripped from SkinTemplate.php
 		$parserLanguageLinks = $this->mParser->getOutput()->getLanguageLinks();
@@ -69,11 +72,13 @@ class WRLanguageLinks {
 				unset( $tmp );
 				$nt = Title::newFromText( $l );
 				if ( $nt ) {
+					$pagename = $nt->getText();
+					$langname = ( $wgContLang->getLanguageName( $nt->getInterwiki() ) != '' ? 
+									$wgContLang->getLanguageName( $nt->getInterwiki() ) : $l );
 					$language_urls[] = array(
 						'href' => $nt->getFullURL(),
-						'title' => ( $wgContLang->getLanguageName( $nt->getInterwiki() ) != '' ?
-									$wgContLang->getLanguageName( $nt->getInterwiki() ) : $l ),
-						'text' => $nt->getText(),
+						'title' => $wgWRLanguageLinksShowTitles ? $langname : $pagename,
+						'text' => $wgWRLanguageLinksShowTitles ? $pagename: $langname,
 						'class' => $class
 					);
 				}
@@ -81,13 +86,14 @@ class WRLanguageLinks {
 		}
 
 		if( count( $language_urls ) ) {
-			$output = '<div class="wr-languagelinks" style="max-width: 80%; margin: auto; background-color: white; border: 1px solid #CEDFF2">' . 
-			'<div class="wr-languagelinks-title" style="text-align: center; font-weight: bold;">' . wfMsg( 'otherlanguages' ) . ':</div>' . 
+			$output = '<div class="wr-languagelinks ' . $listClass . '">' . 
+			'<div class="wr-languagelinks-title">' . wfMsg( 'wr-otherlanguages' ) . ':</div>' . 
 				'<ul class="wr-languagelinks-list">';
 			foreach ( $language_urls as $langlink ) {
 				$output .= '<li class="'. htmlspecialchars(  $langlink['class'] ) . '"><a href="' . htmlspecialchars( $langlink['href'] ) . '" title="' . htmlspecialchars( $langlink['title'] ) . '">' . $langlink['text'] . '</a></li>';
 			}
 			$output .= '</ul></div>';
+			$this->mParser->getOutput()->addModules( 'ext.WRLanguageLinks' );
 		}
 		
 		return $output;
