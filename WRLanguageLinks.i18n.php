@@ -29,8 +29,7 @@ $messages['he'] = array(
 );
 
 $messages['ar'] = array(
-	'otherlanguages'    => 'بلغات أخرى',
-	'wr-otherlanguages-short'    => 'הדף ב-',
+	'wr-otherlanguages'    => 'بلغات أخرى',
 );
 
 

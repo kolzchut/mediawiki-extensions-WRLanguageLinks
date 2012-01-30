@@ -87,8 +87,8 @@ class WRLanguageLinks {
 
 		if( count( $language_urls ) ) {
 			$output = '<div class="wr-languagelinks ' . $listClass . '">' . 
-			'<div class="wr-languagelinks-title">' . wfMsg( 'wr-otherlanguages' ) . ':</div>' . 
-				'<ul class="wr-languagelinks-list">';
+				'<div class="wr-languagelinks-title">' . wfMsg( 'wr-otherlanguages' ) . ':</div>' . 
+				'<ul class="wr-languagelinks-list' . ( count( $language_urls ) == 1 ? ' no-bullets' : '' ) . '">';
 			foreach ( $language_urls as $langlink ) {
 				$output .= '<li class="'. htmlspecialchars(  $langlink['class'] ) . '"><a href="' . htmlspecialchars( $langlink['href'] ) . '" title="' . htmlspecialchars( $langlink['title'] ) . '">' . $langlink['text'] . '</a></li>';
 			}

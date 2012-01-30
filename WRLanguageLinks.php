@@ -22,7 +22,7 @@ $wgExtensionCredits['parserhook'][] = array(
 
 $wgWRLanguageLinksShowOnly = null;
 $wgWRLanguageLinksShowTitles = false; //Show pagename instead of language name; namely <a title=langname>pagename</a>, instead of the opposite
-$wgWRLanguageLinksListType = 'normal'; //Other options: flat (inlnie list) 
+$wgWRLanguageLinksListType = 'normal'; //Other options: flat (inliמe list) 
 
 // Shortcut to this extension directory
 $dir = dirname( __FILE__ ) . '/';
