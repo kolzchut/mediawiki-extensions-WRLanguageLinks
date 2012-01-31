@@ -58,7 +58,7 @@ class WRLanguageLinks {
 		$listClass = "wr-languagelinks-list-$wgWRLanguageLinksListType";
 		
 		$output = null;
-		# Language links - ripped from SkinTemplate.php
+		# Language links - ripped from SkinTemplate.php and then mangled badly
 		$parserLanguageLinks = $this->mParser->getOutput()->getLanguageLinks();
 		$language_urls = array();
 		
@@ -79,16 +79,30 @@ class WRLanguageLinks {
 						'href' => $nt->getFullURL(),
 						'title' => $wgWRLanguageLinksShowTitles ? $langname : $pagename,
 						'text' => $wgWRLanguageLinksShowTitles ? $pagename: $langname,
-						'class' => $class
+						'class' => $class,
+						'iw'	=> $nt->getInterwiki(),
 					);
 				}
 			}
 		}
 
 		if( count( $language_urls ) ) {
-			$output = '<div class="wr-languagelinks ' . $listClass . '">' . 
-				'<div class="wr-languagelinks-title">' . wfMsg( 'wr-otherlanguages' ) . ':</div>' . 
-				'<ul class="wr-languagelinks-list' . ( count( $language_urls ) == 1 ? ' no-bullets' : '' ) . '">';
+			$output = '<div class="wr-languagelinks ' . $listClass . '">' . '<div class="wr-languagelinks-title">';
+			
+			/* not implemented until upgrading to MW1.18 which includes an option to get translated language names
+			if( $wgWRLanguageLinksShowTitles && count( $language_urls == 1 ) ) {
+				if( $language_urls[0]['iw'] == 'he' ) {
+					$output .= wfMessage( 'wr-article-in-hebrew' )->text();
+				} else {
+					$output .= wfMessage( 'wr-in-single-language', $wgContLang->getLanguageName( $language_urls[0]['iw'] )  )->text();
+				}
+			in the meantime:*/
+			if( $wgWRLanguageLinksShowTitles && count( $language_urls == 1 ) && $language_urls[0]['iw'] == 'he' ) {
+				$output .= wfMessage( 'wr-article-in-hebrew' )->text();
+			} else {
+				$output .= wfMessage( 'wr-otherlanguages' )->text();
+			}
+			$output .= ':</div>' . '<ul class="wr-languagelinks-list' . ( count( $language_urls ) == 1 ? ' no-bullets' : '' ) . '">';
 			foreach ( $language_urls as $langlink ) {
 				$output .= '<li class="'. htmlspecialchars(  $langlink['class'] ) . '"><a href="' . htmlspecialchars( $langlink['href'] ) . '" title="' . htmlspecialchars( $langlink['title'] ) . '">' . $langlink['text'] . '</a></li>';
 			}
