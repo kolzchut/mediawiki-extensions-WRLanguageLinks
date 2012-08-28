@@ -89,17 +89,15 @@ class WRLanguageLinks {
 		if( count( $language_urls ) ) {
 			$output = '<div class="wr-languagelinks ' . $listClass . '">' . '<div class="wr-languagelinks-title">';
 			
-			/* not implemented until upgrading to MW1.18 which includes an option to get translated language names
+			/* From MW1.18, which includes an option to get translated language names */
 			if( $wgWRLanguageLinksShowTitles && count( $language_urls == 1 ) ) {
 				if( $language_urls[0]['iw'] == 'he' ) {
 					$output .= wfMessage( 'wr-article-in-hebrew' )->inContentLanguage()->text();
 				} else {
 					$output .= wfMessage( 'wr-in-single-language', $wgContLang->getLanguageName( $language_urls[0]['iw'] )  )->inContentLanguage()->text();
 				}
-			in the meantime:*/
-			if( $wgWRLanguageLinksShowTitles && count( $language_urls == 1 ) && $language_urls[0]['iw'] == 'he' ) {
-				$output .= wfMessage( 'wr-article-in-hebrew' )->inContentLanguage()->text();
-			} else {
+			}
+			else {
 				$output .= wfMessage( 'wr-otherlanguages' )->inContentLanguage()->text();
 			}
 			$output .= ':</div>' . '<ul class="wr-languagelinks-list' . ( count( $language_urls ) == 1 ? ' no-bullets' : '' ) . '">';

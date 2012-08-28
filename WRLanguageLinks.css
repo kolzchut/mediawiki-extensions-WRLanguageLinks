@@ -4,10 +4,10 @@ div.wr-languagelinks {
 	background-color: white; 
 	border: 1px solid #CEDFF2;
 	padding: 0 .3em;
+	text-align: left;
 }
 
 .wr-languagelinks-title {
-	text-align: left; 
 	font-weight: bold;
 }
 
@@ -27,6 +27,7 @@ div.wr-languagelinks-list-normal ul {
 
 div.wr-languagelinks-list-flat div.wr-languagelinks-title {
 	display: inline;
+	float: left;
 	font-weight: normal;
 }
 
