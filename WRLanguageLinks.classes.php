@@ -67,7 +67,7 @@ class WRLanguageLinks {
 		}
 		foreach( $parserLanguageLinks as $l ) {
 			$tmp = explode( ':', $l, 2 );
-			if( count( $showOnly ) == 0 || in_array( $tmp[0], $showOnly ) ) {
+			if( !isset( $showOnly ) || count( $showOnly ) == 0 || in_array( $tmp[0], $showOnly ) ) {
 				$class = 'wr-languagelinks-' . $tmp[0];
 				unset( $tmp );
 				$nt = Title::newFromText( $l );
