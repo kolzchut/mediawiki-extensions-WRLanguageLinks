@@ -24,16 +24,13 @@ $wgWRLanguageLinksShowOnly = null;
 $wgWRLanguageLinksShowTitles = false; //Show pagename instead of language name; namely <a title=langname>pagename</a>, instead of the opposite
 $wgWRLanguageLinksListType = 'normal'; //Other options: flat (inliמe list) 
 
-// Shortcut to this extension directory
-$dir = dirname( __FILE__ ) . '/';
-
 // Internationalization
-$wgExtensionMessagesFiles['WRLanguageLinks'] = $dir . 'WRLanguageLinks.i18n.php';
-$wgExtensionMessagesFiles['WRLanguageLinksMagic'] = $dir . 'WRLanguageLinks.i18n.magic.php';
+$wgExtensionMessagesFiles['WRLanguageLinks'] = __DIR__ . '/WRLanguageLinks.i18n.php';
+$wgExtensionMessagesFiles['WRLanguageLinksMagic'] = __DIR__ . '/WRLanguageLinks.i18n.magic.php';
 
 // Auto load of classes
-$wgAutoloadClasses['WRLanguageLinksHooks'] = $dir . 'WRLanguageLinks.hooks.php';
-$wgAutoloadClasses['WRLanguageLinks'] = $dir . 'WRLanguageLinks.classes.php';
+$wgAutoloadClasses['WRLanguageLinksHooks'] = __DIR__ . '/WRLanguageLinks.hooks.php';
+$wgAutoloadClasses['WRLanguageLinks'] = __DIR__ . '/WRLanguageLinks.classes.php';
 
 // Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'WRLanguageLinksHooks::register';
