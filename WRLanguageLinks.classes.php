@@ -20,11 +20,11 @@ class WRLanguageLinks {
 		$this->mParser = $parser;
 	}
 	
-	public function renderMarker() {
+	public static function renderMarker() {
 		return self::markerText;
 	}
 	
-	public function renderHasLinksMarker() {
+	public static function renderHasLinksMarker() {
 		return self::markerHasLinksText;
 	}
 	
