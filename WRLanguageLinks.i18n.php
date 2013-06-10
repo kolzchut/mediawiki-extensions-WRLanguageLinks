@@ -11,7 +11,7 @@ $messages['en'] = array(
 	'wrlanguagelinks'		=> 'Kol-Zchut Language Links',
 	'wrlanguagelinks-desc'		=> 'Parser function to show InterLanguage links',
 	'wr-otherlanguages'    		=> 'In other languages',
-	'wr-in-single-language'		=> 'Article in $1',
+	'wr-in-single-language'		=> 'Article in {{#language|$1|en}}',
 	'wr-article-in-hebrew' 		=> 'Article in Hebrew',
 
 );
@@ -29,13 +29,13 @@ $messages['qqq'] = array(
 $messages['he'] = array(
 	'wrlanguagelinks' 		=> 'קישורי שפה עבור כל-זכות',
 	'wr-otherlanguages'    => 'שפות נוספות',
-	'wr-in-single-language'	=> 'הערך ב$1',
+	'wr-in-single-language'	=> 'הערך ב{{#language|$1|he}}',
 	'wr-article-in-hebrew' => 'הערך בעברית',
 );
 
 $messages['ar'] = array(
 	'wr-otherlanguages'    		=> 'بلغات أخرى',
-	'wr-in-single-language'	=> 'البند ب$1',
+	'wr-in-single-language'	=> 'البند ب{{#language|$1|ar}}',
 	'wr-article-in-hebrew' => 'البند بالعبرية',
 );
 
