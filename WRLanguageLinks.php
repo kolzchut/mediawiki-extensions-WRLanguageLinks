@@ -15,14 +15,14 @@ $wgExtensionCredits['parserhook'][] = array(
     'path'           => __FILE__,
     'name'           => 'Kol-Zchut Language Links',
     'author'         => 'Dror Snir ([http://www.kolzchut.org.il Kol-Zchut])',
-    'version'        => '0.1.0',
-    'url'            => 'http://www.kolzchut.org.il/he/כל-זכות:Extensions/WRLanguageLinks',
+    'version'        => '1.0.2',
+    'url'            => 'http://www.kolzchut.org.il/he/Project:Extensions/WRLanguageLinks',
     'descriptionmsg' => 'wrlanguagelinks-desc',
 );
 
 $wgWRLanguageLinksShowOnly = null;
 $wgWRLanguageLinksShowTitles = false; //Show pagename instead of language name; namely <a title=langname>pagename</a>, instead of the opposite
-$wgWRLanguageLinksListType = 'normal'; //Other options: flat (inliמe list) 
+$wgWRLanguageLinksListType = 'normal'; //Other options: flat (inline list)
 
 // Internationalization
 $wgExtensionMessagesFiles['WRLanguageLinks'] = __DIR__ . '/WRLanguageLinks.i18n.php';
@@ -35,9 +35,3 @@ $wgAutoloadClasses['WRLanguageLinks'] = __DIR__ . '/WRLanguageLinks.classes.php'
 // Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'WRLanguageLinksHooks::register';
 $wgHooks['ParserBeforeTidy'][] = 'WRLanguageLinksHooks::render';
-
-$wgResourceModules['ext.WRLanguageLinks'] = array(
-	'styles' => 'WRLanguageLinks.css',
-	'localBasePath' => dirname( __FILE__ ),
-	'remoteExtPath' => 'WRLanguageLinks',
-);
