@@ -10,6 +10,7 @@ $messages = array();
 $messages['en'] = array(
 	'wrlanguagelinks'		=> 'Kol-Zchut Language Links',
 	'wrlanguagelinks-desc'		=> 'Parser function to show InterLanguage links',
+    'wr-langlinks-label'        => '{{PLURAL:$1|Translation|Translations}}:',
 	'wr-otherlanguages'    		=> 'In other languages:',
 	'wr-in-single-language'		=> 'Article in {{#language:$1|{{CONTENTLANGUAGE}}}}:',
 );
@@ -19,6 +20,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'wrlanguagelinks-desc' => '{{desc}}',
+    'wr-langlinks-label'        => 'The text that comes before the actual language links',
 );
 
 /** Hebrew (עברית)
@@ -26,11 +28,11 @@ $messages['qqq'] = array(
  */
 $messages['he'] = array(
 	'wrlanguagelinks' 		=> 'קישורי שפה עבור כל-זכות',
-	'wr-otherlanguages'    => 'שפות נוספות:',
-	'wr-in-single-language'	=> 'הערך ב{{#language:$1|{{CONTENTLANGUAGE}} }}:',
+    'wr-langlinks-label'        => '{{PLURAL:$1|תרגום|ترجمات}}:',
 );
 
 $messages['ar'] = array(
+    'wr-langlinks-label'    => '{{PLURAL:$1|ترجمة|',
 	'wr-otherlanguages'    		=> 'بلغات أخرى:',
 	'wr-in-single-language'	=> 'البند ب{{#language:$1|{{CONTENTLANGUAGE}}}}:',
 );

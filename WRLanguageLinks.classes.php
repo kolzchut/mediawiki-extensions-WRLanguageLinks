@@ -98,18 +98,19 @@ class WRLanguageLinks {
         $hasSingleLink = ( count( $languageLinks ) === 1 );
 
         $class = 'wr-languagelinks' . ( $hasSingleLink ? ' single-link' : '' );
-        $output = '<li><div class="' . $class .'"><span class="wr-languagelinks-title">';
+        $output = '<li><div class="' . $class .'"><span class="wr-languagelinks-label">';
+        $output .= wfMessage( 'wr-langlinks-label')->numParams( count( $languageLinks ) )->text();
+        $output .= '</span>';
 
-        if( $hasSingleLink ) {
-            $output .= wfMessage( 'wr-in-single-language', $languageLinks[0]['lang'] )->inContentLanguage()->text();
-
-        } else {
-            $output .= wfMessage( 'wr-otherlanguages' )->inContentLanguage()->text();
+        $class = '';
+        $style = '';
+        $isInlineList = ( $wgWRLanguageLinksListType === 'flat' );
+        if( $hasSingleLink || $isInlineList ) {
+            $class = 'list-inline';
+            $style = 'display: inline'; // Saves on loading a CSS file
         }
 
-        $class = ( $hasSingleLink || $wgWRLanguageLinksListType == 'flat' ) ? 'list-inline' : '';
-        $style = $hasSingleLink ? ' style="display:inline"' : '';   // Saves on loading a CSS file
-        $output .= '</span>' . '<ul class="' . $class . '"' . $style . '>';
+        $output .= '<ul class="' . $class . '" style="' . $style . '">';
 
         foreach( $languageLinks as $langLink) {
             $output .= '<li class="'. htmlspecialchars(  $langLink['class'] ) . '">' .
