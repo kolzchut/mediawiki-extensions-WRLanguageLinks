@@ -28,11 +28,11 @@ $messages['qqq'] = array(
  */
 $messages['he'] = array(
 	'wrlanguagelinks' 		=> 'קישורי שפה עבור כל-זכות',
-    'wr-langlinks-label'        => '{{PLURAL:$1|תרגום|ترجمات}}:',
+    'wr-langlinks-label'        => '{{PLURAL:$1|תרגום|תרגומים}}:',
 );
 
 $messages['ar'] = array(
-    'wr-langlinks-label'    => '{{PLURAL:$1|ترجمة|',
+    'wr-langlinks-label'    => '{{PLURAL:$1|ترجمة|ترجمات',
 	'wr-otherlanguages'    		=> 'بلغات أخرى:',
 	'wr-in-single-language'	=> 'البند ب{{#language:$1|{{CONTENTLANGUAGE}}}}:',
 );
