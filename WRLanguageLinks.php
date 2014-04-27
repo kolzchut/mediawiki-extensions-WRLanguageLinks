@@ -23,6 +23,7 @@ $wgExtensionCredits['parserhook'][] = array(
 $wgWRLanguageLinksShowOnly = null;
 $wgWRLanguageLinksShowTitles = false; //Show pagename instead of language name; namely <a title=langname>pagename</a>, instead of the opposite
 $wgWRLanguageLinksListType = 'normal'; //Other options: flat (inline list)
+$wgWRLanguageLinksShowListLabel = true;	//Show a "translations" / "language links" label for the list
 
 // Internationalization
 $wgExtensionMessagesFiles['WRLanguageLinks'] = __DIR__ . '/WRLanguageLinks.i18n.php';

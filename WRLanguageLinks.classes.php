@@ -91,16 +91,19 @@ class WRLanguageLinks {
 
 
     private function getLanguageLinks() {
-        global $wgWRLanguageLinksListType, $wgLanguageCode;
+        global $wgWRLanguageLinksListType, $wgWRLanguageLinksShowListLabel, $wgLanguageCode;
 
         $languageLinks = $this->makeLanguageLinks();
         if( count( $languageLinks ) === 0 ) { return ''; };
         $hasSingleLink = ( count( $languageLinks ) === 1 );
 
+
         $class = 'wr-languagelinks' . ( $hasSingleLink ? ' single-link' : '' );
-        $output = '<li><div class="' . $class .'"><span class="wr-languagelinks-label">';
-        $output .= wfMessage( 'wr-langlinks-label')->numParams( count( $languageLinks ) )->text();
-        $output .= '</span>';
+        $output = '<li><div class="' . $class .'">';
+		if( $wgWRLanguageLinksShowListLabel === true ) {
+			$label = wfMessage( 'wr-langlinks-label')->numParams( count( $languageLinks ) )->text();
+			$output .= '<span class="wr-languagelinks-label">' . $label . '</span>';
+		}
 
         $class = '';
         $style = '';
