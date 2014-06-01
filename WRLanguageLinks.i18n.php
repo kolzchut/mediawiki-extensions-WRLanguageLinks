@@ -32,7 +32,7 @@ $messages['he'] = array(
 );
 
 $messages['ar'] = array(
-    'wr-langlinks-label'    => '{{PLURAL:$1|ترجمة|ترجمات',
+    'wr-langlinks-label'    => '{{PLURAL:$1|ترجمة|ترجمات}}:',
 	'wr-otherlanguages'    		=> 'بلغات أخرى:',
 	'wr-in-single-language'	=> 'البند ب{{#language:$1|{{CONTENTLANGUAGE}}}}:',
 );
