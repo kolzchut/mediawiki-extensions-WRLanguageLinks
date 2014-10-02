@@ -99,29 +99,42 @@ class WRLanguageLinks {
 
 
         $class = 'wr-languagelinks' . ( $hasSingleLink ? ' single-link' : '' );
-        $output = '<li><div class="' . $class .'">';
+        $output = Html::openElement( 'li' );	// Done to fit inside "See Also"
+		$output .= Html::openElement( 'div', array( 'class' => $class ) );
+
 		if( $wgWRLanguageLinksShowListLabel === true ) {
 			$label = wfMessage( 'wr-langlinks-label')->numParams( count( $languageLinks ) )->text();
-			$output .= '<span class="wr-languagelinks-label">' . $label . '</span>';
+			$output .= Html::element( 'span', array( 'class' => 'wr-languagelinks-label' ), $label . ' ' );
 		}
 
-        $class = '';
-        $style = '';
-        $isInlineList = ( $wgWRLanguageLinksListType === 'flat' );
-        if( $hasSingleLink || $isInlineList ) {
-            $class = 'list-inline';
-            $style = 'display: inline'; // Saves on loading a CSS file
-        }
+		$renderedLangLinks = array();
+		foreach( $languageLinks as $langLink) {
+			$renderedLangLinks[] = Html::element( 'a', array(
+					'class' => $langLink['class'],
+					'href' => $langLink['href'],
+					'title' => $langLink['title']
+				),
+				$langLink['text']
+			);
+		}
 
-        $output .= '<ul class="' . $class . '" style="' . $style . '">';
+		if( $hasSingleLink ) {
+			$output .= $renderedLangLinks[0];
+		} else {
+			$isInlineList = $wgWRLanguageLinksListType === 'flat';
+			$class = $isInlineList ? 'list-inline' : null;
+			$style = $isInlineList ? 'display: inline;' : null;
 
-        foreach( $languageLinks as $langLink) {
-            $output .= '<li class="'. htmlspecialchars(  $langLink['class'] ) . '">' .
-                '<a href="' . htmlspecialchars( $langLink['href'] ) . '" ' .
-                'title="' . htmlspecialchars( $langLink['title'] ) . '">' . $langLink['text'] . '</a></li>';
-        }
+			$output .= '<ul class="'.$class.'" style="'.$style.'">';
+			foreach( $renderedLangLinks as $langLink) {
+				$output .= "<li>$langLink</li>";
+			}
+			$output .= Html::closeElement( 'ul' );
+		}
 
-        $output .= '</ul></div></li>';
+		$output .= Html::closeElement( 'div' );	// Wrapper
+		$output .= Html::closeElement( 'li' );	// li for "See Also"
+
         //$this->mParser->getOutput()->addModules( 'ext.WRLanguageLinks' );
 
         return $output;
