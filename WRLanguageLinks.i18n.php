@@ -11,8 +11,8 @@ $messages['en'] = array(
 	'wrlanguagelinks'		=> 'Kol-Zchut Language Links',
 	'wrlanguagelinks-desc'		=> 'Parser function to show InterLanguage links',
     'wr-langlinks-label'        => '{{PLURAL:$1|Translation|Translations}}:',
-	'wr-otherlanguages'    		=> 'In other languages:',
-	'wr-in-single-language'		=> 'Article in {{#language:$1|{{CONTENTLANGUAGE}}}}:',
+	//'wr-otherlanguages'    		=> 'In other languages:',
+	//'wr-in-single-language'		=> 'Article in {{#language:$1|{{CONTENTLANGUAGE}}}}:',
 );
 
 /** Message documentation (Message documentation)
@@ -33,8 +33,8 @@ $messages['he'] = array(
 
 $messages['ar'] = array(
     'wr-langlinks-label'    => '{{PLURAL:$1|ترجمة|ترجمات}}:',
-	'wr-otherlanguages'    		=> 'بلغات أخرى:',
-	'wr-in-single-language'	=> 'البند ب{{#language:$1|{{CONTENTLANGUAGE}}}}:',
+	'//wr-otherlanguages'    		=> 'بلغات أخرى:',
+	'//wr-in-single-language'	=> 'البند ب{{#language:$1|{{CONTENTLANGUAGE}}}}:',
 );
 
 
