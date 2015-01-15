@@ -26,7 +26,7 @@ $wgWRLanguageLinksListType = 'normal'; //Other options: flat (inline list)
 $wgWRLanguageLinksShowListLabel = true;	//Show a "translations" / "language links" label for the list
 
 // Internationalization
-$wgExtensionMessagesFiles['WRLanguageLinks'] = __DIR__ . '/WRLanguageLinks.i18n.php';
+$GLOBALS['wgMessagesDirs']['WRLanguageLinks'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['WRLanguageLinksMagic'] = __DIR__ . '/WRLanguageLinks.i18n.magic.php';
 
 // Auto load of classes

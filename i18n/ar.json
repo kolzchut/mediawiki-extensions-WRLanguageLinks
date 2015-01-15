@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Suheir Daksa-Halabi"
+		]
+	},
+
+	"wr-langlinks-label": "{{PLURAL:$1|ترجمة|ترجمات}}:"
+
+}
