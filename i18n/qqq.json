@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dror S.",
+			"..."
+		]
+	},
+
+	"wrlanguagelinks-desc":	"{{desc}}",
+	"wr-langlinks-label":   "The text that comes before the actual language links"
+
+}
