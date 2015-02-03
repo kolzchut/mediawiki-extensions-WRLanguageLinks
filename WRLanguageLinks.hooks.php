@@ -1,7 +1,12 @@
 <?php
 
 class WRLanguageLinksHooks {
-	
+
+	/**
+	 * Hook: ParserFirstCallInit
+	 * @param $parser Parser
+	 * @return true
+	 */
 	public static function register( &$parser ) {
 		$parser->setHook( 'languagelinks', array( 'WRLanguageLinks', 'renderMarker' ) );
 		$parser->setFunctionHook( 'haslanguagelinks', array( 'WRLanguageLinks', 'renderHasLinksMarker' ) );
@@ -9,9 +14,10 @@ class WRLanguageLinksHooks {
 	}
 	
 	/**
+	 * Hook: ParserBeforeTidy
 	 * @param $parser Parser
-	 * @param $alt string
-	 * @return String
+	 * @param $text string
+	 * @return true
 	 */
 	public static function render( &$parser, &$text ) {
 		// Create LangBox
