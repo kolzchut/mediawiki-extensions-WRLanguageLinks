@@ -119,7 +119,7 @@ class WRLanguageLinks {
 		}
 
 		if( $hasSingleLink ) {
-			$output .= $renderedLangLinks[0];
+			$output .= '<span class="interlanguage-link">' . $renderedLangLinks[0] . '</span>';
 		} else {
 			$isInlineList = $wgWRLanguageLinksListType === 'flat';
 			$class = $isInlineList ? 'list-inline' : null;
@@ -127,7 +127,7 @@ class WRLanguageLinks {
 
 			$output .= '<ul class="'.$class.'" style="'.$style.'">';
 			foreach( $renderedLangLinks as $langLink) {
-				$output .= "<li>$langLink</li>";
+				$output .= "<li class=\"interlanguage-link\">$langLink</li>";
 			}
 			$output .= Html::closeElement( 'ul' );
 		}
