@@ -1,8 +1,8 @@
 <?php
 /**
  * WRLanguageLinks extension - Provides interlanguage links
- * @author Dror Snir
- * @copyright (C) 2006 Dror Snir (Kol-Zchut)
+ * @author Dror S. [FFS]
+ * @copyright © 2014-2015 Dror S. & Kol-Zchut Ltd.
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
@@ -12,12 +12,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Setup */
 $wgExtensionCredits['parserhook'][] = array(
-    'path'           => __FILE__,
-    'name'           => 'Kol-Zchut Language Links',
-    'author'         => 'Dror Snir ([http://www.kolzchut.org.il Kol-Zchut])',
-    'version'        => '1.0.2',
-    'url'            => 'http://www.kolzchut.org.il/he/Project:Extensions/WRLanguageLinks',
-    'descriptionmsg' => 'wrlanguagelinks-desc',
+	'path'           => __FILE__,
+	'name'           => 'Kol-Zchut Language Links',
+	'author'         => 'Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])',
+	'version'        => '1.0.2',
+	'url'            => 'http://www.kolzchut.org.il/he/Project:Extensions/WRLanguageLinks',
+	'descriptionmsg' => 'wrlanguagelinks-desc',
 );
 
 $wgWRLanguageLinksShowOnly = null;
