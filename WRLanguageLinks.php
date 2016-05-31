@@ -16,7 +16,8 @@ $wgExtensionCredits['parserhook'][] = array(
 	'name'           => 'Kol-Zchut Language Links',
 	'author'         => 'Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])',
 	'version'        => '1.0.2',
-	'url'            => 'http://www.kolzchut.org.il/he/Project:Extensions/WRLanguageLinks',
+	'url'            => 'https://github.com/kolzchut/mediawiki-extensions-WRLanguageLinks',
+	'license-name'    => 'GPL-2.0+',
 	'descriptionmsg' => 'wrlanguagelinks-desc',
 );
 
