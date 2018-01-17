@@ -11,7 +11,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 /* Setup */
-$wgExtensionCredits['parserhook'][] = array(
+$wgExtensionCredits['parserhook'][] = [
 	'path'           => __FILE__,
 	'name'           => 'Kol-Zchut Language Links',
 	'author'         => 'Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])',
@@ -19,12 +19,18 @@ $wgExtensionCredits['parserhook'][] = array(
 	'url'            => 'https://github.com/kolzchut/mediawiki-extensions-WRLanguageLinks',
 	'license-name'    => 'GPL-2.0+',
 	'descriptionmsg' => 'wrlanguagelinks-desc',
-);
+];
 
 $wgWRLanguageLinksShowOnly = null;
-$wgWRLanguageLinksShowTitles = false; //Show pagename instead of language name; namely <a title=langname>pagename</a>, instead of the opposite
-$wgWRLanguageLinksListType = 'normal'; //Other options: flat (inline list)
-$wgWRLanguageLinksShowListLabel = true;	//Show a "translations" / "language links" label for the list
+
+// Show pagename instead of language name
+$wgWRLanguageLinksShowTitles = false;
+
+// Other options: flat (inline list)
+$wgWRLanguageLinksListType = 'normal';
+
+// Show a "translations" / "language links" label for the list
+$wgWRLanguageLinksShowListLabel = true;
 
 // Internationalization
 $GLOBALS['wgMessagesDirs']['WRLanguageLinks'] = __DIR__ . '/i18n';

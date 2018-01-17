@@ -9,10 +9,13 @@ class WRLanguageLinksHooks {
 	 */
 	public static function register( &$parser ) {
 		$parser->setHook( 'languagelinks', array( 'WRLanguageLinks', 'renderMarker' ) );
-		$parser->setFunctionHook( 'haslanguagelinks', array( 'WRLanguageLinks', 'renderHasLinksMarker' ) );
+		$parser->setFunctionHook(
+			'haslanguagelinks',
+			[ 'WRLanguageLinks', 'renderHasLinksMarker' ]
+		);
 		return true;
 	}
-	
+
 	/**
 	 * Hook: ParserBeforeTidy
 	 * @param $parser Parser
@@ -22,10 +25,10 @@ class WRLanguageLinksHooks {
 	public static function render( &$parser, &$text ) {
 		// Create LangBox
 		$wrLanguageLinks = new WRLanguageLinks( $parser );
-		
+
 		// Return output
 		$wrLanguageLinks->render( $text );
-		
+
 		return true;
 	}
 }
