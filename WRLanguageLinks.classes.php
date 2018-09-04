@@ -82,13 +82,19 @@ class WRLanguageLinks {
 						$ilLangName = $languageLinkText;
 					}
 					$ilArticleName = $languageLinkTitle->getText();
-					$language_urls[] = [
+					$langLink = [
 						'href' => $languageLinkTitle->getFullURL(),
 						'text' => $wgWRLanguageLinksShowTitles ? $ilArticleName : $ilLangName,
 						'title' => $wgWRLanguageLinksShowTitles ? $ilLangName : $ilArticleName,
 						'class' => "wr-languagelinks-$ilInterwikiCode",
 						'lang' => $ilInterwikiCode
 					];
+
+					$result = Hooks::run( 'WRLanguageLinks::MakeLanguageLink', [ &$langLink ] );
+					// If not nulled by the hook
+					if ( $result !== false && is_array( $langLink ) ) {
+						$language_urls[] = $langLink;
+					}
 				}
 			}
 		}
