@@ -113,8 +113,7 @@ class WRLanguageLinks {
 		$hasSingleLink = ( count( $languageLinks ) === 1 );
 
 		$class = 'wr-languagelinks' . ( $hasSingleLink ? ' single-link' : '' );
-		$output = Html::openElement( 'li' );	// Done to fit inside "See Also"
-		$output .= Html::openElement( 'div', [ 'class' => $class ] );
+		$output = Html::openElement( 'div', [ 'class' => $class ] );
 
 		if ( $wgWRLanguageLinksShowListLabel === true ) {
 			$label = wfMessage( 'wr-langlinks-label' )->numParams( count( $languageLinks ) )->text();
@@ -147,7 +146,6 @@ class WRLanguageLinks {
 		}
 
 		$output .= Html::closeElement( 'div' );	// Wrapper
-		$output .= Html::closeElement( 'li' );	// li for "See Also"
 
 		return $output;
 	}
