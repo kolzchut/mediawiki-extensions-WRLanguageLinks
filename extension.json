@@ -1,6 +1,6 @@
 {
 	"name": "Kol-Zchut Language Links",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"author": "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])",
 	"url": "https://github.com/kolzchut/mediawiki-extensions-WRLanguageLinks",
 	"descriptionmsg": "wrlanguagelinks-desc",
@@ -28,6 +28,9 @@
 			"value": "normal"
 		},
 		"WRLanguageLinksShowListLabel": {
+			"value": true
+		},
+		"WRLanguageLinksLinksAlphabetically": {
 			"value": true
 		}
 	},

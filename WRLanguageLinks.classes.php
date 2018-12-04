@@ -60,12 +60,17 @@ class WRLanguageLinks {
 	}
 
 	private function makeLanguageLinks() {
-		global $wgWRLanguageLinksShowOnly, $wgWRLanguageLinksShowTitles;
+		global $wgWRLanguageLinksShowOnly, $wgWRLanguageLinksShowTitles,
+		       $wgWRLanguageLinksLinksAlphabetically;
 
 		// Language links - ripped from SkinTemplate.php and then mangled badly
 		$parserLanguageLinks = $this->mParser->getOutput()->getLanguageLinks();
 		$language_urls = [];
 		$showOnly = [];
+
+		if ( $wgWRLanguageLinksLinksAlphabetically === true ) {
+			sort( $parserLanguageLinks );
+		}
 
 		if ( $wgWRLanguageLinksShowOnly != null ) {
 			$showOnly = explode( ',', $wgWRLanguageLinksShowOnly );
