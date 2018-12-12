@@ -60,12 +60,17 @@ class WRLanguageLinks {
 	}
 
 	private function makeLanguageLinks() {
-		global $wgWRLanguageLinksShowOnly, $wgWRLanguageLinksShowTitles;
+		global $wgWRLanguageLinksShowOnly, $wgWRLanguageLinksShowTitles,
+		       $wgWRLanguageLinksLinksAlphabetically;
 
 		// Language links - ripped from SkinTemplate.php and then mangled badly
 		$parserLanguageLinks = $this->mParser->getOutput()->getLanguageLinks();
 		$language_urls = [];
 		$showOnly = [];
+
+		if ( $wgWRLanguageLinksLinksAlphabetically === true ) {
+			sort( $parserLanguageLinks );
+		}
 
 		if ( $wgWRLanguageLinksShowOnly != null ) {
 			$showOnly = explode( ',', $wgWRLanguageLinksShowOnly );
@@ -113,8 +118,7 @@ class WRLanguageLinks {
 		$hasSingleLink = ( count( $languageLinks ) === 1 );
 
 		$class = 'wr-languagelinks' . ( $hasSingleLink ? ' single-link' : '' );
-		$output = Html::openElement( 'li' );	// Done to fit inside "See Also"
-		$output .= Html::openElement( 'div', [ 'class' => $class ] );
+		$output = Html::openElement( 'div', [ 'class' => $class ] );
 
 		if ( $wgWRLanguageLinksShowListLabel === true ) {
 			$label = wfMessage( 'wr-langlinks-label' )->numParams( count( $languageLinks ) )->text();
@@ -147,7 +151,6 @@ class WRLanguageLinks {
 		}
 
 		$output .= Html::closeElement( 'div' );	// Wrapper
-		$output .= Html::closeElement( 'li' );	// li for "See Also"
 
 		return $output;
 	}

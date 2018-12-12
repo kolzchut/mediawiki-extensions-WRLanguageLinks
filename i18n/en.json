@@ -6,5 +6,5 @@
 	},
 	"wrlanguagelinks":	"Kol-Zchut Language Links",
 	"wrlanguagelinks-desc":	"Parser function to show InterLanguage links",
-	"wr-langlinks-label":   "{{PLURAL:$1|Translation|Translations}}:"
+	"wr-langlinks-label":   "Translation:"
 }
