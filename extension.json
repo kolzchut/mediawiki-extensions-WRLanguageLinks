@@ -15,7 +15,7 @@
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "WRLanguageLinksHooks::register",
-		"ParserBeforeTidy": "WRLanguageLinksHooks::render"
+		"ParserAfterTidy": "WRLanguageLinksHooks::onParserAfterTidy"
 	},
 	"config": {
 		"WRLanguageLinksShowOnly": {

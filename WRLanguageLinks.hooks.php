@@ -17,18 +17,15 @@ class WRLanguageLinksHooks {
 	}
 
 	/**
-	 * Hook: ParserBeforeTidy
+	 * Hook: ParserAfterTidy
 	 * @param $parser Parser
 	 * @param $text string
-	 * @return true
 	 */
-	public static function render( &$parser, &$text ) {
+	public static function onParserAfterTidy( &$parser, &$text ) {
 		// Create LangBox
 		$wrLanguageLinks = new WRLanguageLinks( $parser );
 
 		// Return output
 		$wrLanguageLinks->render( $text );
-
-		return true;
 	}
 }
