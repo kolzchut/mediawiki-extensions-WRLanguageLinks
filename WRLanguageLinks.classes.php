@@ -61,7 +61,7 @@ class WRLanguageLinks {
 
 	private function makeLanguageLinks() {
 		global $wgWRLanguageLinksShowOnly, $wgWRLanguageLinksShowTitles,
-		       $wgWRLanguageLinksLinksAlphabetically;
+			   $wgWRLanguageLinksLinksAlphabetically;
 
 		// Language links - ripped from SkinTemplate.php and then mangled badly
 		$parserLanguageLinks = $this->mParser->getOutput()->getLanguageLinks();
@@ -81,7 +81,7 @@ class WRLanguageLinks {
 			if ( $languageLinkTitle ) {
 				$ilInterwikiCode = $languageLinkTitle->getInterwiki();
 
-				if ( is_null( $wgWRLanguageLinksShowOnly ) || in_array( $ilInterwikiCode, $showOnly ) ) {
+				if ( $wgWRLanguageLinksShowOnly === null || in_array( $ilInterwikiCode, $showOnly ) ) {
 					$ilLangName = Language::fetchLanguageName( $ilInterwikiCode );
 					if ( strval( $ilLangName ) === '' ) {
 						$ilLangName = $languageLinkText;
@@ -106,7 +106,6 @@ class WRLanguageLinks {
 
 		return $language_urls;
 	}
-
 
 	private function getLanguageLinks() {
 		global $wgWRLanguageLinksListType, $wgWRLanguageLinksShowListLabel;
@@ -143,7 +142,7 @@ class WRLanguageLinks {
 			$class = $isInlineList ? 'list-inline' : null;
 			$style = $isInlineList ? 'display: inline;' : null;
 
-			$output .= '<ul class="'.$class.'" style="'.$style.'">';
+			$output .= '<ul class="' . $class . '" style="' . $style . '">';
 			foreach ( $renderedLangLinks as $langLink ) {
 				$output .= "<li class=\"interlanguage-link\">$langLink</li>";
 			}
@@ -156,5 +155,3 @@ class WRLanguageLinks {
 	}
 
 }
-
-
